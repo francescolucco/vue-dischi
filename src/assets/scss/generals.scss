@@ -1,9 +1,11 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~@fontsource/montserrat/index.css";
+@import "~@fontsource/montserrat/500.css";
+@import "~@fontsource/montserrat/600.css";
 @import "~@fontsource/montserrat/700.css";
 
 
 body{
    font-family: $font;
-   color: $primary-color;
+   color: lighten($primary-color, 30%);
 }
