@@ -37,6 +37,10 @@ export default {
             .then(response =>{
                this.albums = response.data.response;
                console.log(this.albums);
+               this.loaded = true;
+            })
+            .catch(error =>{
+               console.log(error);
             })
       }
    },
