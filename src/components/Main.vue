@@ -27,7 +27,11 @@ export default {
 
 main{
    padding: 100px 0;
-   background-color: $second-color;
+   background-image: linear-gradient(to bottom,
+   lighten($second-color, 0%),
+   lighten($second-color, 50%),
+   lighten($second-color, 50%),
+   lighten($second-color, 0%));
    min-height: calc(100vh - 70px);
 }
 

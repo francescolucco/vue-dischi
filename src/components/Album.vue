@@ -31,6 +31,14 @@ export default {
   margin: 20px 22px;
   text-align: center;
   padding: 15px!important;
+  transition: 0.30s;
+  cursor: pointer;
+  box-shadow: 0 3px 3px rgba(black, $alpha: 0.3);
+  &:hover{
+    // filter: invert(1);
+    transform: scale(105%);
+    box-shadow: 0 3px 10px rgba(black, $alpha: 0.5);
+  }
   .col-lg-2 {
     width: 14.666667%!important;
     };
