@@ -13,7 +13,7 @@
 export default {
    name: 'Album',
    props:{
-     infoAlbum: Object
+     infoAlbum: Object,
    },
 }
 </script>

@@ -1,7 +1,9 @@
 <template>
    <main>
       <div class="container">
-         <BoxAlbum/>
+         <!-- <h1>{{genreSelected}}</h1> -->
+         <BoxAlbum
+         :genreSelected="genreSelected"/>
       </div>
    </main>
 </template>
@@ -12,6 +14,18 @@ import BoxAlbum from "./BoxAlbum.vue"
 
 export default {
    name: 'Main',
+   data(){
+      return{
+      }
+   },
+   props:{
+      genreSelected: String,
+   },
+   methods: {
+      bho(){
+        console.log(this.genre);
+      }
+   },
    components:{
     BoxAlbum
    }

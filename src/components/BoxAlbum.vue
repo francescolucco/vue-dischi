@@ -2,7 +2,7 @@
    <div>
       <div v-if="loaded" class="row">
          <Album
-            v-for="(album, index) in albums"
+            v-for="(album, index) in filteredAlbum"
             :key="index"
             :infoAlbum = "album"
             />
@@ -24,11 +24,14 @@ export default {
       Album,
       Loader
    },
+   props:{
+      genreSelected: String,
+   },
    data(){
       return{
          urlApiBoolean: 'https://flynn.boolean.careers/exercises/api/array/music',
          albums: [],
-         loaded: false
+         loaded: false,
       }
    },
    methods:{
@@ -41,7 +44,26 @@ export default {
             })
             .catch(error =>{
                console.log(error);
-            })
+            });
+         },
+      },
+
+   computed:{
+      filteredAlbum(){
+         if(this.genreSelected === 'selected' || this.genreSelected === ''){
+            return this.albums;
+         }
+         // return this.albums.filter(album => album.genre === this.genreSelected)
+         const discFiltered = [];
+
+         this.albums.forEach(album =>{
+            if(album.genre === this.genreSelected){
+               discFiltered.push(album);
+            }
+         })
+         console.log(discFiltered);
+         return discFiltered;
+         
       }
    },
    mounted(){

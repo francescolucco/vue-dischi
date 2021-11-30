@@ -1,7 +1,10 @@
 <template>
   <div>
-    <Header/>
-    <Main/>
+    <Header 
+    @changeGenre="sendgenere"/>
+    <Main
+    :genreSelected="genereSelected"
+    />
   </div>
 </template>
 
@@ -11,9 +14,20 @@ import Main from "./components/Main.vue"
 
 export default {
   name: 'App',
+  data(){
+    return{
+      genereSelected: ''
+    }
+  },
   components: {
     Header, 
     Main,
+  }, 
+  methods:{
+    sendgenere(genre){
+      this.genereSelected = genre;
+      console.log(this.genereSelected);
+    }
   }
 }
 </script>
