@@ -31,6 +31,7 @@ export default {
       return{
          urlApiBoolean: 'https://flynn.boolean.careers/exercises/api/array/music',
          albums: [],
+         genreList: [],
          loaded: false,
       }
    },
@@ -40,6 +41,12 @@ export default {
             .then(response =>{
                this.albums = response.data.response;
                console.log(this.albums);
+               this.albums.forEach(album=>{
+                  if(!this.genreList.includes(album.genre)){
+                  this.genreList.push(album.genre)
+                  }
+               })
+               this.$emit('genresListed', this.genreList);
                this.loaded = true;
             })
             .catch(error =>{

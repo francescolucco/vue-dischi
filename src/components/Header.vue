@@ -10,10 +10,13 @@
         @change="$emit('changeGenre', genre)"
         aria-label="Default select example">
         <option value="selected" selected>Seleziona il genere musicale</option>
-        <option value="Pop">Pop</option>
-        <option value="Jazz">Jazz</option>
+        <option 
+          v-for="(genre, index) in genres"
+          :key="index"
+          :value="genre">{{genre}}</option>
+        <!-- <option value="Jazz">Jazz</option>
         <option value="Metal">Metal</option>
-        <option value="Rock">Rock</option>
+        <option value="Rock">Rock</option> -->
       </select>
     </div>
   </header>
@@ -27,6 +30,9 @@ export default {
        genre: '',
    }
   },
+  props:{
+    genres: Array
+  }
 }
 </script>
 

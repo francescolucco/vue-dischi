@@ -1,9 +1,11 @@
 <template>
   <div>
     <Header 
-    @changeGenre="sendgenere"/>
+    @changeGenre="sendgenere"
+    :genres="genres"/>
     <Main
     :genreSelected="genereSelected"
+    @genresListed="genresToPops"
     />
   </div>
 </template>
@@ -16,7 +18,8 @@ export default {
   name: 'App',
   data(){
     return{
-      genereSelected: ''
+      genereSelected: '',
+      genres: []
     }
   },
   components: {
@@ -27,6 +30,10 @@ export default {
     sendgenere(genre){
       this.genereSelected = genre;
       console.log(this.genereSelected);
+    },
+    genresToPops(array){
+      this.genres = array
+      console.log(this.genres);
     }
   }
 }

@@ -1,9 +1,9 @@
 <template>
    <main>
       <div class="container">
-         <!-- <h1>{{genreSelected}}</h1> -->
          <BoxAlbum
-         :genreSelected="genreSelected"/>
+         :genreSelected="genreSelected"
+         @genresListed= "genresToPops"/>
       </div>
    </main>
 </template>
@@ -22,8 +22,8 @@ export default {
       genreSelected: String,
    },
    methods: {
-      bho(){
-        console.log(this.genre);
+      genresToPops(array){
+        this.$emit('genresListed', array)
       }
    },
    components:{
